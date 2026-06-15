@@ -103,23 +103,14 @@ export default function Home() {
       </nav>
 
       <section className="relative h-screen">
-        <img
-          src={slides[current].image}
-          alt="JaBos Döner"
-          className="w-full h-full object-cover object-center opacity-60"
-          style={{objectPosition: "center center"}}
-        />
+        <img src={slides[current].image} alt="JaBos Döner" className="w-full h-full object-cover object-center opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
           <img src="/logo.png" alt="Logo" className="h-16 md:h-24 mb-6 invert" />
           <p className="text-red-500 uppercase tracking-widest text-sm mb-4">Neu in Heidelberg</p>
           <h1 className="text-4xl md:text-6xl font-black mb-4 drop-shadow-lg">JaBo&apos;s Döner</h1>
-          <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl px-4">
-            {slides[current].text}
-          </p>
-          <a href="tel:062217360555" className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 md:px-10 md:py-4 rounded-full text-base md:text-lg transition-colors">
-            Jetzt anrufen
-          </a>
+          <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl px-4">{slides[current].text}</p>
+          <a href="tel:062217360555" className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 md:px-10 md:py-4 rounded-full text-base md:text-lg transition-colors">Jetzt anrufen</a>
         </div>
         <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8592;</button>
         <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8594;</button>
@@ -285,4 +276,4 @@ export default function Home() {
 
     </main>
   );
-}s
+}
