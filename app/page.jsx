@@ -1,12 +1,27 @@
 "use client";
 import { useState } from "react";
 
-const images = [
-  "/innenraum.png",
-  "/speisekarte.png",
-  "/kisir.png",
-  "/doenerteller.png",
-  "/doenerteller2.png"
+const slides = [
+  {
+    image: "/innenraum.png",
+    text: "Gemütliche Atmosphäre mitten in Heidelberg — komm vorbei und fühl dich wie zuhause."
+  },
+  {
+    image: "/speisekarte.png",
+    text: "Von Döner bis Steinofenpizza — für jeden Geschmack ist etwas dabei."
+  },
+  {
+    image: "/kisir.png",
+    text: "Frische Zutaten, täglich zubereitet — Qualität die man schmeckt."
+  },
+  {
+    image: "/doenerteller.png",
+    text: "Der JaBo's Dönerteller — großzügig, sättigend und unwiderstehlich."
+  },
+  {
+    image: "/doenerteller2.png",
+    text: "Steak Döner vom Lavastein-Grill — knusprig außen, saftig innen."
+  }
 ];
 
 const Flames = ({ opacity = 0.5, height = 200 }) => (
@@ -39,8 +54,8 @@ const Flames = ({ opacity = 0.5, height = 200 }) => (
 export default function Home() {
   const [current, setCurrent] = useState(0);
 
-  const next = () => setCurrent((prev) => (prev + 1) % images.length);
-  const prev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const next = () => setCurrent((prev) => (prev + 1) % slides.length);
+  const prev = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <main className="min-h-screen bg-black text-white font-sans">
@@ -88,23 +103,28 @@ export default function Home() {
       </nav>
 
       <section className="relative h-screen">
-        <img src={images[current]} alt="JaBos Döner" className="w-full h-full object-cover opacity-60" />
+        <img
+          src={slides[current].image}
+          alt="JaBos Döner"
+          className="w-full h-full object-cover object-center opacity-60"
+          style={{objectPosition: "center center"}}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-60"></div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10">
-          <img src="/logo.png" alt="Logo" className="h-24 mb-6 invert" />
+          <img src="/logo.png" alt="Logo" className="h-16 md:h-24 mb-6 invert" />
           <p className="text-red-500 uppercase tracking-widest text-sm mb-4">Neu in Heidelberg</p>
-          <h1 className="text-6xl font-black mb-4 drop-shadow-lg">JaBo&apos;s Döner</h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-2xl">
-            Steak Döner vom Lavastein-Grill &middot; Steinofenpizza &middot; Tantuni
+          <h1 className="text-4xl md:text-6xl font-black mb-4 drop-shadow-lg">JaBo&apos;s Döner</h1>
+          <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl px-4">
+            {slides[current].text}
           </p>
-          <a href="tel:062217360555" className="bg-red-600 hover:bg-red-700 text-white font-bold px-10 py-4 rounded-full text-lg transition-colors">
+          <a href="tel:062217360555" className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 md:px-10 md:py-4 rounded-full text-base md:text-lg transition-colors">
             Jetzt anrufen
           </a>
         </div>
-        <button onClick={prev} className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8592;</button>
-        <button onClick={next} className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8594;</button>
+        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8592;</button>
+        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full text-xl">&#8594;</button>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {images.map((_, i) => (
+          {slides.map((_, i) => (
             <button key={i} onClick={() => setCurrent(i)} className={`w-3 h-3 rounded-full transition-colors ${i === current ? "bg-red-600" : "bg-gray-400"}`} />
           ))}
         </div>
