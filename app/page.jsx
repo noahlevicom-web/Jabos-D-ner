@@ -135,16 +135,16 @@ export default function Home() {
           <h2 className="text-4xl font-black text-center mb-10">Frisch. Heiß. <span className="text-red-600">Unwiderstehlich.</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="overflow-hidden rounded-lg">
-              <img src="/doenerteller.png" alt="Dönerteller" className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+              <img src="/doenerteller.png" alt="Dönerteller" className="w-full h-72 object-cover object-top hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="overflow-hidden rounded-lg">
-              <img src="/doenerteller2.png" alt="Dönerteller" className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+              <img src="/doenerteller2.png" alt="Dönerteller" className="w-full h-72 object-cover object-top hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="overflow-hidden rounded-lg">
-              <img src="/kisir.png" alt="Kisir" className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+              <img src="/kisir.png" alt="Kisir" className="w-full h-72 object-cover object-top hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="overflow-hidden rounded-lg">
-              <img src="/innenraum.png" alt="Innenraum" className="w-full h-72 object-cover hover:scale-105 transition-transform duration-500" />
+              <img src="/innenraum.png" alt="Innenraum" className="w-full h-72 object-cover object-top hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
@@ -285,4 +285,4 @@ export default function Home() {
 
     </main>
   );
-}
+}s
